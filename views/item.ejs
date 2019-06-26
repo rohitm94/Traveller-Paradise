@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Adventure Detail</title>
+<link rel="icon" type="image/jpg" href="/images/logo.jpg" />
+<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <% if(!(login == 1)){ %>
+    <% include partials/header.ejs %>
+    <% include partials/user-navigation.ejs %>
+    <%  }else{ %>
+      <% include partials/signedin-header.ejs %>
+      <% include partials/signeduser-navigation.ejs %>
+    <%  }    %>
+  <% include partials/site-navigation.ejs %>
+
+ <div id = "mains">
+		<ul class="breadcrumb">
+	        <li><a href="/">Home</a></li>
+			<li><a href="/adventures">Adventures</a></li>
+			<li>Adventure Detail</li>
+		</ul>
+    <a class="return-link" href="/adventures" >Return to Adventures</a>
+		<section>
+		    <article class="itemimage">
+                <img id="trekimage" src ='<%= data.imgUrl %>' alt = "logo">
+            </article>
+
+            <article class="trekcontent">
+			<h3>
+			    <%= data.adventureName %><br><br>
+			    <%= data.catalogCategory %><br>
+			</h3>
+      <h3><% if(!(sess == undefined))
+        {
+          for(i=0;i< sessuser.length;i++)
+            {
+              if(sessuser[i].adventure.adventureCode == data.adventureCode)
+              {
+                for(var j=1; j<= 5; j++)
+                {
+                  if(j<= sessuser[i].rating){ %>
+                    &#9733;
+                    <%}
+                    else{ %>
+                    &#9734;
+                    <%}
+                }
+              }
+            }
+        }%>
+      </h3>
+      <% if(!(sess == undefined)){
+        for(i=0;i< sessuser.length;i++){
+          if(sessuser[i].adventure.adventureCode == data.adventureCode){
+            savedone = true;
+            break;
+          }
+        }
+          if(savedone == false){%>
+	         </article>
+			        <div class="treknav">
+			             <article class="add">
+                       <a href="<%= '/mytrips?action=Saveadventure&adventureCode='+data.adventureCode%>">
+                       <button type="submit" name="button">Add to My Trips</button>
+                     </a>
+			             </article>
+      <% }
+    }%>
+<%if(savedone == true){%>
+      &nbsp;&nbsp;
+			<article class="share">
+        <a href="<%='/mytrips?action=update&adventureCode='+data.adventureCode%>">
+          <button type="submit" name="button">Rate it</button>
+          </a>
+			</article>
+      <% }%>
+
+      		<article class="content-pillow">
+              <p > <%= data.itemDescription %></p>
+      		</article>
+        </section >
+</div>
+
+<% include partials/footer.ejs %>
+</body>
+</html>

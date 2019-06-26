@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Homepage</title>
+<link rel="icon" type="image/jpg" href="/images/logo.jpg" />
+<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <% if(!(login == 1)){ %>
+    <% include partials/header.ejs %>
+    <% include partials/user-navigation.ejs %>
+    <%  }else{ %>
+      <% include partials/signedin-header.ejs %>
+      <% include partials/signeduser-navigation.ejs %>
+    <%  }    %>
+<div>
+<% include partials/site-navigation.ejs %>
+  <video autoplay muted id ="main">
+		<source src="/videos/promo.mp4" type="video/mp4">
+	</video>
+</div>
+<% include partials/footer.ejs %>
+</body>
+</html>

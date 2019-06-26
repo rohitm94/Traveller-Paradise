@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Adventures</title>
+<link rel="icon" type="image/jpg" href="/images/logo.jpg" />
+<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <%
+  if(!(login == 1)){
+     %>
+    <% include partials/header.ejs %>
+    <% include partials/user-navigation.ejs %>
+    <%  }else{ %>
+      <% include partials/signedin-header.ejs %>
+      <% include partials/signeduser-navigation.ejs %>
+    <%  }    %>
+  <% include partials/site-navigation.ejs %>
+
+ <div id = "mains">
+		<ul class="breadcrumb">
+	        <li><a href="/">Home</a></li>
+			<li>Adventures</li>
+		</ul>
+
+    <div>
+      <%
+     for(var i=0; i< data.categories.length; i++){ %>
+                  <h2 class="adventure-category"><%= data.categories[i] %>
+                  </h2>
+
+              <nav>
+                <ul class ="subtypes">
+                  <%
+                  for(var j=0; j< data.adventures.length;j++){
+                      if(data.categories[i] === data.adventures[j].catalogCategory){ %>
+                      <li class="individual-adventuress"><a href="../item/<%= data.adventures[j].adventureCode %>"><%= data.adventures[j].adventureType %></a></li>
+                     <% }
+                  }
+                   %>
+                </ul>
+              </nav>
+          <% }%>
+      </div>
+</div>
+
+
+<% include partials/footer.ejs %>
+</body>
+</html>

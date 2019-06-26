@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact Us</title>
+<link rel="icon" type="image/jpg" href="/images/logo.jpg" />
+<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <% if(!(login == 1)){ %>
+    <% include partials/header.ejs %>
+    <% include partials/user-navigation.ejs %>
+    <%  }else{ %>
+      <% include partials/signedin-header.ejs %>
+      <% include partials/signeduser-navigation.ejs %>
+    <%  }    %>
+  <% include partials/site-navigation.ejs %>
+
+ <div id = "mains">
+  	<article>
+    	<h2 class="contact">
+    	Contact our Team at:
+    	</h2>
+  	</article>
+  	<article>
+    	<h3>
+        <i>
+    	Trip IN Trip OUT<br>
+      143 Ferrari St<br>
+      Charlotte,North Carolina 28262<br>
+    </i>
+      </h3>
+      <h2 class="contact">Dial us: 7044901284</h2>
+      <h2 class="contact">Email us: rmullang@uncc.edu</h2>
+    </article>
+
+  </div>
+
+
+<% include partials/footer.ejs %>
+</body>
+</html>

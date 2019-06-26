@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Added Trips</title>
+<link rel="icon" type="image/jpg" href="/images/logo.jpg" />
+<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="javascript/mytrips.js"></script>
+</head>
+<body>
+  <% include partials/signedin-header.ejs %>
+  <% include partials/signeduser-navigation.ejs %>
+  <% include partials/site-navigation.ejs %>
+
+ <div id = "mains">
+		<ul class="breadcrumb">
+	        <li><a href="/">Home</a></li>
+			<li>My Trips</li>
+		</ul>
+
+		<h2>MY TRIP LIST</h2>
+		<table class="mylist">
+                  <tr class="header-table">
+                    <td>Trips</td>
+                    <td>Category</td>
+                    <td>User Rating</td>
+					          <td>Tried Status</td>
+	                  <td></td> 
+	                  <td></td>
+                  </tr>
+
+                  <%
+                  for(var j=0; j< data.length;j++)
+                  { %>
+                  <tr>
+                    <td><a href="<%='/item/'+data[j].adventure.adventureCode %>"><%= data[j].adventure.adventureType %></a></td>
+                    <td><%= data[j].adventure.catalogCategory %></td>
+                    <td><%= data[j].rating %></td>
+					          <td><%= data[j].triedit %></td>
+                    <td>
+                      <a class="" href="<%='/mytrips?action=update&adventureCode='+data[j].adventure.adventureCode%>">
+                      <button type="submit" name="button">Update</button>
+                    </form></td>
+                    <td>
+                      <a class="" href="<%='/mytrips?action=delete&adventureCode='+data[j].adventure.adventureCode%>">
+                        <button type="submit" name="button">Delete</button>
+                    </form></td>
+
+                  </tr>
+                  <% }
+                  %>
+
+
+                </table>
+
+				<p id="legend"><img src = "/images/calendar.jpg" alt ="my-rating"> This indicates that the trip has been registered.</p>
+				<h3>Click <a href="#">here</a> to share the trip details with your friends.</h3>
+
+</div>
+
+
+<% include partials/footer.ejs %>
+</body>
+</html>

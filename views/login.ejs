@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login Page</title>
+<link rel="icon" type="image/jpg" href="/images/logo.jpg" />
+<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <% include partials/header.ejs %>
+    <% include partials/user-navigation.ejs %>
+
+    <% include partials/site-navigation.ejs %>
+
+ <div id = "half1">
+   <h1>Welcome to Trip IN Trip OUT!</h1>
+   <p>Please enter EmailID and password to Sign In.</p>
+   <% if(errors != undefined) {%>
+     <section class="errors">
+       <ul>
+       <% for(let i=0; i<errors.length; i++) {%>
+
+         <li>
+           <%= errors[i].msg %>
+         </li>
+       <%}%>
+     </ul>
+     <%if(matchresponse == false){%>
+     <ul>
+       <p>Username or Password does not match</p>
+     </ul>
+   <%}%>
+   </section>
+ <%}%>
+   <form action="/login" method="post">
+     <label for="usrid"><b>User ID: </b></label>&nbsp;
+     <input type="text" id ="usrid" name="usrid" required> <br><br>
+     <label for="password"><b>Password:</b></label>&nbsp;
+     <input type="password" id ="password" name="pass" required><br><br>
+     <br><br>
+     <input type="submit" name="action" value="Login">
+   </form>
+ </div>
+ <div id="half2">
+   <h1>Register as New user</h1>
+   <p>Please enter details to Register.</p>
+   <% if(regerrors!= undefined) {%>
+     <section class="errors">
+       <ul>
+       <% for(let i=0; i<regerrors.length; i++) {%>
+
+         <li>
+           <%= regerrors[i].msg %>
+         </li>
+       <%}%>
+     </ul>
+   </section>
+ <%}%>
+ <form action="/register" method="post">
+   <label for="fname"><b>First Name: </b></label>&nbsp;
+   <input type="text" id ="fname" name="fname" required> <br><br>
+   <label for="lname"><b>Last Name:</b></label>&nbsp;&nbsp;
+   <input type="text" id ="lname" name="lname" required><br><br>
+   <label for="uname"><b>User Name: </b></label>&nbsp;
+   <input type="text" id ="uname" name="uname" required> <br><br>
+   <label for="elecmail"><b>Email ID:</b></label>&nbsp;&nbsp;&nbsp;&nbsp;
+   <input type="email" id ="elecmail" name="elecmail" required><br><br>
+   <label for="pwd"><b>Password:</b></label>&nbsp;&nbsp;&nbsp;&nbsp;
+   <input type="password" id ="pwd" name="pwd" required><br><br>
+   <label for="re-pwd"><b>Retype Password:</b></label>&nbsp;
+   <input type="password" id ="re-pwd" name="re-pwd" required><br><br>
+   <label for="age"><b>Age:</b></label>&nbsp;
+   <input type="number" id ="age" name="age" required><br><br>
+   <label for="zipcode"><b>Zipcode:</b></label>&nbsp;
+   <input type="number" id ="zipcode" name="zipcode" required><br><br>
+   <label for="country"><b>Country:</b></label>&nbsp;
+   <input type="text" id ="country" name="country" required><br><br>
+   <br><br>
+   <input type="submit" name="action" value="Register">
+ </form>
+ </div>
+
+
+<% include partials/footer.ejs %>
+</body>
+</html>

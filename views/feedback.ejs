@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Adventure Detail</title>
+<link rel="icon" type="image/jpg" href="/images/logo.jpg" />
+<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <% include partials/signedin-header.ejs %>
+  <% include partials/signeduser-navigation.ejs %>
+  <% include partials/site-navigation.ejs %>
+
+ <div id = "mains">
+
+		<section>
+		    <article class="itemimage">
+                <img id="trekimage" src ='<%= data.adventure.imgUrl %>' alt = "logo">
+            </article>
+
+            <article class="trekcontent">
+			<h3>
+			    <i>Give Feedback/suggestions for:</i><br><br>
+			    <%= data.adventure.adventureType %><br>
+			</h3>
+      <form action = 'changes' method = "POST">
+               <input type="hidden" name = "adventurecode" value = "<%= data.adventure.adventureCode %>">
+               <input type="hidden" name = "rate" value = "<%= data.rating %>">
+               <input type="hidden" name = "stat" value = "<%= data.triedit %>">
+
+        <select name="rating" >
+          <option disabled selected value><%= data.rating %></option>
+          <option value="1">&#9733;</option>
+          <option value="2">&#9733;&#9733;</option>
+          <option value="3">&#9733;&#9733;&#9733;</option>
+          <option value="4">&#9733;&#9733;&#9733;&#9733;</option>
+          <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
+      </select>
+
+      <select name="flag" >
+        <option disabled selected value="<%= data.triedit %>"><%= data.triedit %></option>
+        <option value="true">TRUE</option>
+        <option value="false">FALSE</option>
+    </select>
+			</article>
+      </section >
+			<div class="treknav">
+			<article class="add">
+          <button type="submit" name="action" value = "UpdateuserRating">Submit Rating </button>
+			</article>
+      <article class="add">
+          <button type="submit" name="action" value = "Updateuserflag">Submit Flag</button>
+			</article>
+    </form>
+			</div>
+
+
+</div>
+
+
+<% include partials/footer.ejs %>
+</body>
+</html>

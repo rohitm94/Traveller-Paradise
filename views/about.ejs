@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>About</title>
+<link rel="icon" type="image/jpg" href="/images/logo.jpg" />
+<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <% if(!(login == 1)){ %>
+    <% include partials/header.ejs %>
+    <% include partials/user-navigation.ejs %>
+    <%  }else{ %>
+      <% include partials/signedin-header.ejs %>
+      <% include partials/signeduser-navigation.ejs %>
+    <%  }    %>
+  <% include partials/site-navigation.ejs %>
+
+   <div id = "mains">
+    	<article>
+      	<h2 class="about">
+      	About Us
+      	</h2>
+    	</article>
+
+    	<article>
+      	<h3>
+      	We are an adventure organization.<br>
+        As a Team we strive to provide customers with novel adventure trips that focuses on customers finding themselves in comfort zone.<br>
+        We are just a medium to build your confidence and leadership abilities.<br>
+        </h3>
+        <h2 class="about-end">Change starts with U.</h2>
+      </article>
+
+    </div>
+
+
+<% include partials/footer.ejs %>
+</body>
+</html>
