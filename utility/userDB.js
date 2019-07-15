@@ -1,7 +1,7 @@
 var userProfileModel = require('../models/userProfile');
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/tripbase',{ useNewUrlParser: true },function(err){
+mongoose.connect('<Enter Mongodb connection link>',{ useNewUrlParser: true },function(err){
   if(err) throw err;
 });
 
