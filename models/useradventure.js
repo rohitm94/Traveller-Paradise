@@ -1,5 +1,5 @@
 var UserAdventure = function(adventure,rating,triedit){
-
+//Intialization of UserAdventure Model
   userAdventureModel = {
     adventure : adventure,
     rating : rating,
