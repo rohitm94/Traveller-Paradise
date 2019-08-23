@@ -20,7 +20,9 @@ app.use(express.static(path.join(__dirname, 'assets')));
 
 app.use(cookieParser());
 
-//Session initialisation
+//Session initialisation. 
+//Here rohitweb is a secret token used for session creation. It can be anything.
+
 app.use(session({resave: false,secret: "rohitweb", saveUninitialized: true,cookie: { maxAge: 60000 }}));
 
 //  routes defining
