@@ -1,8 +1,9 @@
+// Created a function and exported the same.
 var adventure = function(adventureCode, adventureType,adventureName, catalogCategory,
   itemDescription, rating, imageURL,ownerId, Triedit){
 
+  // Initialization of Adventure model
   AdventureModel ={
-
     adventureCode:adventureCode,
     adventureType:adventureType,
     adventureName:adventureName,
