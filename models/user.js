@@ -1,5 +1,5 @@
 var user = function(userId, firstname, lastname, emailaddr,password, age, zipcode, country){
-
+//Intialization of User Model
   userModel = {
     userId : userId,
     firstName : firstName,
