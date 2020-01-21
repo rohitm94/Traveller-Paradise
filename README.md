@@ -1,4 +1,6 @@
-# Traveller-Paradise
+# Traveller-Paradise 
+
+Role: NOde.js Developer
 
 This project is aimed at providing content sharing feature and also to register for avilable trip options.
 
